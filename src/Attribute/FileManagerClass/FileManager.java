@@ -2,6 +2,7 @@ package Attribute.FileManagerClass;
 
 import static java.lang.System.out;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -9,6 +10,7 @@ import java.util.Scanner;
 import Attribute.FileManagerClass.Interface.FileInterface;
 
 public class FileManager implements FileInterface {
+    private File file;
     private Scanner fileReader;
     private String fileName;
 
@@ -17,6 +19,14 @@ public class FileManager implements FileInterface {
 
     FileManager() {
 
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 
     public Scanner getFileReader() {
@@ -51,7 +61,8 @@ public class FileManager implements FileInterface {
         this.result = result;
     }
 
-    FileManager(Scanner fileReader, String fileName, FileWriter fileWriter, String result) {
+    FileManager(File file, Scanner fileReader, String fileName, FileWriter fileWriter, String result) {
+        this.setFile(file);
         this.setFileReader(fileReader);
         this.setFileName(fileName);
         this.setFileWriter(fileWriter);
