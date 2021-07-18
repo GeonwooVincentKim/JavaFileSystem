@@ -1,5 +1,6 @@
 package Attribute.FileManager;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -10,14 +11,16 @@ import static java.lang.System.out;
 
 public class FileManager extends FileClass {
 
-    FileManager(Scanner fileReader, String fileName, FileWriter fileWriter, String result) {
-        super(fileReader, fileName, fileWriter, result);
+    public FileManager(File file, Scanner fileReader, String fileName, FileWriter fileWriter, String result) {
+        super(file, fileReader, fileName, fileWriter, result);
     }
 
     @Override
     public Scanner readFile(String fileName) {
+        file = new File(fileName);
+
         try {
-            fileReader = new Scanner(fileName);
+            fileReader = new Scanner(file);
         } catch (Exception e) {
             out.println(e.getMessage());
             out.println("----------------");

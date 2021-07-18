@@ -1,9 +1,11 @@
 package Attribute.FileManager.AbstractClass;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.util.Scanner;
 
 public abstract class FileClass {
+    protected File file;
     protected Scanner fileReader;
     private String fileName;
 
@@ -14,11 +16,20 @@ public abstract class FileClass {
 
     }
 
-    protected FileClass(Scanner fileReader, String fileName, FileWriter fileWriter, String result) {
+    protected FileClass(File file, Scanner fileReader, String fileName, FileWriter fileWriter, String result) {
+        this.setFile(file);
         this.setFileReader(fileReader);
         this.setFileName(fileName);
         this.setFileWriter(fileWriter);
         this.setResult(result);
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 
     public Scanner getFileReader() {
